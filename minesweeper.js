@@ -9,9 +9,56 @@ export const annotate = (input) => {
     for (let column = 0; column < input[0].length; column++){
       //when the index of the asterisk is located console.log
       if(arr[row][column] === "*"){
-
-        console.log('this is ast', arr[row][column])
+        //Above the asterisk
+        if(arr[row-1][column] !== "*" && arr[row-1][column] !== "1"){
+          arr[row-1][column] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //Under the asterisk
+        if(arr[row+1][column] !== "*" && arr[row-1][column] !== "1"){
+          arr[row+1][column] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //left of the asterisk
+        if(arr[row][column-1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row][column-1] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //Right of the asterisk
+        if(arr[row][column+1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row][column+1] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //Top left of the asterisk
+        if(arr[row-1][column-1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row-1][column-1] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //Top Right of the asterisk
+        if(arr[row-1][column+1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row-1][column+1] = "1"
+        }else {
+          arr[row][column]++
+        }
+        //Bottom left of the asterisk
+        if(arr[row+1][column-1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row+1][column-1] = "1"
+        }else {
+          arr[row][column]++
+        }
+         //Bottom right of the asterisk
+         if(arr[row+1][column+1] !== "*" && arr[row-1][column] !== "1"){
+          arr[row+1][column+1] = "1"
+        }else {
+          arr[row][column]++
+        }
       }
+      return input;
     }
   }
   throw new Error('Remove this statement and implement this function');
